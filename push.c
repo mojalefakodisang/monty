@@ -33,4 +33,12 @@ void push(stack_t **stack, unsigned int line_number)
 		n = atoi(built.arg);
 		addnode(stack, n);
 	}
+	else
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fclose(built.file);
+		free(built.content);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
 }
