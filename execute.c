@@ -56,7 +56,7 @@ void execute(char **exec_arg, unsigned int line, stack_t **stack, FILE *file)
 	};
 	int i = 0, j = 0;
 	char *op;
-	
+
 	if (exec_arg == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, exec_arg[0]);
