@@ -1,4 +1,5 @@
 #include "monty.h"
+builtint_t built;
 
 /**
  * main - encomporates program with extternal arguments
