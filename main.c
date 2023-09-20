@@ -15,7 +15,7 @@ int main(int args, char *argv[])
 	char *buff = NULL, **exec_arg = NULL;
 	ssize_t read_line = 1;
 	size_t len = 0;
-	unsigned int line = 1;
+	unsigned int line = 0;
 
 	if (args != 2)
 	{
@@ -30,18 +30,15 @@ int main(int args, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	else
+	while (read_line > 0)
 	{
-		while (read_line > 0)
+		read_line = getline(&buff, &len, file);
+		built.content = buff;
+		line++;
+		if (read_line > 0)
 		{
-			read_line = getline(&buff, &len, file);
-			built.content = buff;
-			if (read_line > 0)
-			{
-				exec_arg = tokenize(buff);
-				execute(exec_arg, line, &stack, file);
-				line++;
-			}
+			exec_arg = tokenize(buff);
+			execute(exec_arg, line, &stack, file);
 		}
 	}
 	free(buff);
