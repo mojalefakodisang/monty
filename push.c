@@ -1,5 +1,12 @@
 #include "monty.h"
-
+/**
+ *push - pushes an element to the stack
+ *
+ *@stack: the head of  a doubly linked list of a stack
+ *@line_number: the line number where the instruction appears
+ *
+ * Return: no return
+ */
 void push(stack_t **stack, unsigned int line_number)
 {
 	int n, j = 0, flag = 0;
