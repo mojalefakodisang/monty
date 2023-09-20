@@ -35,7 +35,7 @@ char **tokenize(char *content)
 /**
  * execute - gets the opcode function from a opcode keyword
  *
- * @exec_arg: input array of strings
+ * @buff: input array of strings
  * @line: line number of the bytecode file
  * @stack: head of the stack_t list
  * @file: bytecode file
@@ -57,22 +57,24 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 	int i = 0;
 	char *op;
 
-		op = strtok(buff, " \n\t");
-		built.arg = strtok(NULL, " \n\t");
-		while (ops[i].opcode && op)
+	op = strtok(buff, " \n\t");
+	built.arg = strtok(NULL, " \n\t");
+	while (ops[i].opcode && op)
+	{
+		if (strcmp(op, ops[i].opcode) == 0)
 		{
-			if (strcmp(op, ops[i].opcode) == 0)
-			{
-				ops[i].f(stack, line);
-				return (1);
-			}
-			i++;
+			ops[i].f(stack, line);
+			return (0);
 		}
-	if (op == NULL && ops[i].opcode == NULL)
+		i++;
+	}
+	if (op && ops[i].opcode == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, op);
 		fclose(file);
+		free(buff);
+		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	return (0);
+	return (1);
 }
