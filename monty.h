@@ -56,7 +56,7 @@ typedef struct builtint_s
 	FILE *file;
 } builtint_t;
 
-builtint_t built;
+extern builtint_t built;
 
 /* Main functions */
 
