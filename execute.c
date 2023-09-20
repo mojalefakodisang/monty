@@ -42,7 +42,7 @@ char **tokenize(char *content)
  *
  * Return: No return value
  */
-int execute(char **exec_arg, unsigned int line, stack_t **stack, FILE *file)
+int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 {
 	instruction_t ops[] = {
 		{"push", push},
@@ -54,13 +54,11 @@ int execute(char **exec_arg, unsigned int line, stack_t **stack, FILE *file)
 		{"nop", nop},
 		{NULL, NULL}
 	};
-	int i = 0, j = 0;
+	int i = 0;
 	char *op;
 
-	for (j = 0; exec_arg[j] != NULL; j++)
-	{
-		op = strtok(exec_arg[j], " \n\t");
-		built.arg = exec_arg[j + 1];
+		op = strtok(buff, " \n\t");
+		built.arg = strtok(NULL, " \n\t");
 		while (ops[i].opcode && op)
 		{
 			if (strcmp(op, ops[i].opcode) == 0)
@@ -70,12 +68,10 @@ int execute(char **exec_arg, unsigned int line, stack_t **stack, FILE *file)
 			}
 			i++;
 		}
-	}
 	if (op == NULL && ops[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line, exec_arg[0]);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line, op);
 		fclose(file);
-		free_contents(exec_arg);
 		exit(EXIT_FAILURE);
 	}
 	return (0);

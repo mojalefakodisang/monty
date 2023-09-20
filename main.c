@@ -12,7 +12,7 @@ int main(int args, char *argv[])
 {
 	FILE *file;
 	stack_t *stack = NULL;
-	char *buff = NULL, **exec_arg = NULL;
+	char *buff = NULL;
 	ssize_t read_line = 1;
 	size_t len = 0;
 	unsigned int line = 0;
@@ -38,8 +38,7 @@ int main(int args, char *argv[])
 		line++;
 		if (read_line > 0)
 		{
-			exec_arg = tokenize(buff);
-			execute(exec_arg, line, &stack, file);
+			execute(buff, line, &stack, file);
 		}
 	}
 	free(buff);

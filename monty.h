@@ -73,7 +73,7 @@ void nop(stack_t **stack, unsigned int line_number);
 char **tokenize(char *content);
 void free_contents(char **exec_arg);
 void free_list(stack_t *head);
-int execute(char **exec_arg, unsigned int line, stack_t **stack, FILE *file);
+int execute(char *buff, unsigned int line, stack_t **stack, FILE *file);
 void addnode(stack_t **head, int n);
 
 #endif
