@@ -71,7 +71,7 @@ int execute(char **exec_arg, unsigned int line, stack_t **stack, FILE *file)
 			i++;
 		}
 	}
-	if (ops[i].opcode == NULL)
+	if (op == NULL && ops[i].opcode == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, exec_arg[0]);
 		fclose(file);

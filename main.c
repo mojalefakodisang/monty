@@ -30,6 +30,7 @@ int main(int args, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+
 	while (read_line > 0)
 	{
 		read_line = getline(&buff, &len, file);
@@ -42,6 +43,7 @@ int main(int args, char *argv[])
 		}
 	}
 	free(buff);
+	free_list(stack);
 	fclose(file);
 	return (0);
 }
