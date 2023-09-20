@@ -1,0 +1,8 @@
+push 3
+push 2
+pall
+swap
+push 4
+nop
+push 5
+pall

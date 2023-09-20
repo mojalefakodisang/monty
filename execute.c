@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * tokenize - tokenizes input string into an array of strings
+ *
+ * @content: string to be tokenized
+ *
+ * Return: an array of strings
+ */
 char **tokenize(char *content)
 {
 	char **exec_arg = NULL;
@@ -25,6 +32,16 @@ char **tokenize(char *content)
 	return (exec_arg);
 }
 
+/**
+ * execute - gets the opcode function from a opcode keyword
+ *
+ * @exec_arg: input array of strings
+ * @line: line number of the bytecode file
+ * @stack: head of the stack_t list
+ * @file: bytecode file
+ *
+ * Return: No return value
+ */
 void execute(char **exec_arg, unsigned int line, stack_t **stack, FILE *file)
 {
 	instruction_t ops[] = {

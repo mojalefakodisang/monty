@@ -1,6 +1,13 @@
 #include "monty.h"
-builtint_t built = {NULL, NULL, NULL};
 
+/**
+ * main - encomporates program with extternal arguments
+ *
+ * @args: number of arguments
+ * @argv: argument vectors
+ *
+ * Return: returns 0 on success, else exit with EXIT FAILURE
+ */
 int main(int args, char *argv[])
 {
 	FILE *file;

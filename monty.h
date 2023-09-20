@@ -8,6 +8,16 @@
 #include <unistd.h>
 
 /* Structures */
+/**
+ * struct stack_s - doubly linked list representation of a stack (or queue)
+ *
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO
+ */
 typedef struct stack_s
 {
 	int n;
@@ -15,12 +25,30 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+/**
+ * struct instruction_s - opcode and its function
+ *
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
 typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct builtint_s - builtin structure to store contents
+ *
+ * @content: stores content for the input
+ * @arg: stores arguments
+ * @file: stores the input file
+ *
+ * Description - builtin structure to store contents
+ */
 typedef struct builtint_s
 {
 	char *content;
@@ -28,7 +56,7 @@ typedef struct builtint_s
 	FILE *file;
 } builtint_t;
 
-extern builtint_t built;
+builtint_t built;
 
 /* Main functions */
 
