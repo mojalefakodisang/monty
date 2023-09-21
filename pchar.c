@@ -16,6 +16,9 @@ void pchar(stack_t **stack, unsigned int line_number)
 	if (h == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		fclose(built.file);
+		free(built.content);
+		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if ((h->n >= 0 && h->n <= 127))
@@ -26,6 +29,9 @@ void pchar(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		fclose(built.file);
+		free(built.content);
+		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 }
