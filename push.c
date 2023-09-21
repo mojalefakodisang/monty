@@ -31,7 +31,7 @@ void push(stack_t **stack, unsigned int line_number)
 			}
 		}
 		n = atoi(built.arg);
-		if (built.flag == 0)
+		if (built.flag == 1)
 			addnode(stack, n);
 		else
 			addnode_end(stack, n);

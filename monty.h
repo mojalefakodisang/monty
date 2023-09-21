@@ -46,6 +46,7 @@ typedef struct instruction_s
  * @content: stores content for the input
  * @arg: stores arguments
  * @file: stores the input file
+ * @flag: checks if it is stack (or queue)
  *
  * Description - builtin structure to store contents
  */
@@ -54,6 +55,7 @@ typedef struct builtint_s
 	char *content;
 	char *arg;
 	FILE *file;
+	int flag;
 } builtint_t;
 
 builtint_t built;
@@ -71,6 +73,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack_f(stack_t **stack, unsigned int line_number);
+void queue_f(stack_t **stack, unsigned int line_number);
 
 /* Helper functions */
 
@@ -79,5 +83,6 @@ void free_contents(char **exec_arg);
 void free_list(stack_t *head);
 int execute(char *buff, unsigned int line, stack_t **stack, FILE *file);
 void addnode(stack_t **head, int n);
+void addnode_end(stack_t **head, int n);
 
 #endif

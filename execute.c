@@ -56,6 +56,7 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack_f}, {"queue", queue_f},
 		{NULL, NULL}
 	};
 	int i = 0;
