@@ -26,12 +26,12 @@ void div_f(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->next->n == 0)
+	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	div = (*stack)->n / (*stack)->next->n;
+	div = (*stack)->next->n / (*stack)->n;
 	(*stack)->next->n = div;
 
 	current = *stack;
