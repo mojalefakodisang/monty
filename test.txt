@@ -1,4 +1,6 @@
-push 65
-pchar
+push 111
+push 111
 push 128
-pchar
+push 99
+push 83
+pstr

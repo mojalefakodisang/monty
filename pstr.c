@@ -17,13 +17,15 @@ void pstr(stack_t **stack, unsigned int line_number)
 	{
 		printf("\n");
 	}
-	if (h->n >= 0 && h->n <= 127)
+	while (h != NULL)
 	{
-		while (h != NULL && h->n != 0)
+		if (h->n > 0 && h->n <= 127)
 		{
 			printf("%c", (char)h->n);
 			h = h->next;
 		}
-		printf("\n");
+		else
+			break;
 	}
+	printf("\n");
 }
