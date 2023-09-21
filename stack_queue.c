@@ -13,7 +13,7 @@ void stack_f(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 
-	built.flag = 1;
+	built.flag = 0;
 }
 
 /**
@@ -29,5 +29,5 @@ void queue_f(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 
-	built.flag = 0;
+	built.flag = 1;
 }
