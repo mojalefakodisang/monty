@@ -60,11 +60,12 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 	char *op;
 
 	op = strtok(buff, " \n\t");
+	if (op && op[0] == '#')
+		return (0);
+
 	built.arg = strtok(NULL, " \n\t");
 	while (ops[i].opcode && op)
 	{
-		if (op && op[0] == '#')
-			return (0);
 		if (strcmp(op, ops[i].opcode) == 0)
 		{
 			ops[i].f(stack, line);
