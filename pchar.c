@@ -17,7 +17,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((h->n >= 65 && h->n <= 90) || (h->n >= 97 && h->n <= 122))
+	if ((h->n >= 0 || h->n <= 127))
 	{
 		printf("%c\n", (char)h->n);
 	}
