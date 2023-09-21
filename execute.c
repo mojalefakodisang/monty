@@ -52,11 +52,15 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 		{"add", add},
 		{"swap", swap},
 		{"nop", nop},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i = 0;
 	char *op;
 
+	if (buff[0] == '#')
+		return(0);
 	op = strtok(buff, " \n\t");
 	built.arg = strtok(NULL, " \n\t");
 	while (ops[i].opcode && op)
