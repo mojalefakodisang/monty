@@ -10,7 +10,7 @@
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	stack_t *h;
-	char c;
+	int c;
 
 	h = *stack;
 	if (h == NULL)
@@ -23,8 +23,8 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	if ((h->n >= 0 && h->n <= 127))
 	{
-		c = (char)h->n;
-		h->n = (int)c;
+		c = h->n;
+		h->n = c;
 	}
 	else
 	{
