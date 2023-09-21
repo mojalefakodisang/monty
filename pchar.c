@@ -10,6 +10,7 @@
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	stack_t *h;
+	char c;
 
 	h = *stack;
 	if (h == NULL)
@@ -17,9 +18,10 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((h->n >= 0 || h->n <= 127))
+	if ((h->n >= 0 && h->n <= 127))
 	{
-		printf("%c\n", (char)h->n);
+		c = (char)h->n;
+		printf("%c\n", c);
 	}
 	else
 	{
