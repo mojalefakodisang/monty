@@ -52,6 +52,8 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 		{"add", add},
 		{"swap", swap},
 		{"nop", nop},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i = 0;
