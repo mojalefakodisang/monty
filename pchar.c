@@ -24,7 +24,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	if ((h->n >= 0 && h->n <= 127))
 	{
 		c = (char)h->n;
-		printf("%c\n", c);
+		h->n = c;
 	}
 	else
 	{
@@ -34,4 +34,6 @@ void pchar(stack_t **stack, unsigned int line_number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
+	printf("%c\n", h->n);
+
 }
