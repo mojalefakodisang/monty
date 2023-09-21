@@ -45,17 +45,13 @@ char **tokenize(char *content)
 int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 {
 	instruction_t ops[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"add", add},
-		{"swap", swap},
-		{"nop", nop},
-		{"pchar", pchar},
-		{"pstr", pstr},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"push", push}, {"pall", pall},
+		{"pint", pint}, {"pop", pop},
+		{"add", add}, {"sub", sub}, {"mul", mul},
+		{"div", div_f}, {"mod", mod},
+		{"swap", swap}, {"nop", nop},
+		{"pchar", pchar},{"pstr", pstr},
+		{"rotl", rotl}, {"rotr", rotr},
 		{"stack", stack_f}, {"queue", queue_f},
 		{NULL, NULL}
 	};
