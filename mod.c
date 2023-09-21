@@ -22,18 +22,12 @@ void mod(stack_t **stack, unsigned int line_number)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
-		fclose(built.file);
-		free(built.content);
-		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
 	if ((*stack)->next->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
-		fclose(built.fle);
-		free(built.content);
-		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 	mod = (*stack)->n % (*stack)->next->n;
