@@ -30,11 +30,6 @@ void push(stack_t **stack, unsigned int line_number)
 				exit(EXIT_FAILURE);
 			}
 		}
-		n = atoi(built.arg);
-		if (built.flag == 1)
-			addnode(stack, n);
-		else
-			addnode_end(stack, n);
 	}
 	else
 	{
@@ -44,4 +39,9 @@ void push(stack_t **stack, unsigned int line_number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
+	n = atoi(built.arg);
+	if (built.flag == 0)
+		addnode(stack, n);
+	else
+		addnode_end(stack, n);
 }
