@@ -63,7 +63,7 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 	built.arg = strtok(NULL, " \n\t");
 	while (ops[i].opcode && op)
 	{
-		if (op[0] == '#')
+		if (op && op[0] == '#')
 			return (0);
 		if (strcmp(op, ops[i].opcode) == 0)
 		{
