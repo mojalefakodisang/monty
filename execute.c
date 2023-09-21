@@ -59,7 +59,6 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 
 	if (buff[0] == '#')
 		return (0);
-
 	op = strtok(buff, " \n\t");
 	built.arg = strtok(NULL, " \n\t");
 	while (ops[i].opcode && op)
