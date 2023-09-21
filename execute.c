@@ -50,7 +50,7 @@ int execute(char *buff, unsigned int line, stack_t **stack, FILE *file)
 		{"add", add}, {"sub", sub}, {"mul", mul},
 		{"div", div_f}, {"mod", mod},
 		{"swap", swap}, {"nop", nop},
-		{"pchar", pchar},{"pstr", pstr},
+		{"pchar", pchar}, {"pstr", pstr},
 		{"rotl", rotl}, {"rotr", rotr},
 		{"stack", stack_f}, {"queue", queue_f},
 		{NULL, NULL}
